@@ -10,7 +10,7 @@ import org.jetbrains.anko.toast
 
 class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView{
     override fun registerResult(b: Boolean) {
-        toast("注册成功")
+        if(b) toast("注册成功")else toast("注册失败")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
