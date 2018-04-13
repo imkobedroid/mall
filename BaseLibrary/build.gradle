@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -22,6 +24,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 
 }
 
@@ -44,5 +48,9 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     compile "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermission"
     compile "com.google.dagger:dagger:$dagger2"
-    compile "com.google.dagger:dagger-compiler:$dagger2"
+    kapt "com.google.dagger:dagger-compiler:$dagger2"
+}
+
+kapt {
+    generateStubs = true
 }

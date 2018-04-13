@@ -5,11 +5,12 @@ import com.kotlin.usercenter.service.impl.UserServiceImpl
 import mall.kotlin.com.baselibrary.ext.execute
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
+import javax.inject.Inject
 
 /**
  * @author Dsh  on 2018/4/10.
  */
-class RegisterPresenter : BasePresenter<RegisterView>() {
+open class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
 
     fun register(mobile: String, code: String, pwd: String) {

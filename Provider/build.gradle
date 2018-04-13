@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
+
+
 android {
     compileSdkVersion 26
 
@@ -24,6 +27,7 @@ android {
         }
     }
 
+
 }
 
 dependencies {
@@ -34,4 +38,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(':BaseLibrary')
 
+}
+
+
+kapt {
+    generateStubs = true
 }

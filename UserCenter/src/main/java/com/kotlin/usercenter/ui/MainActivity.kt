@@ -19,7 +19,6 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        mPresenter = RegisterPresenter()
         mPresenter.mView = this
         button.setOnClickListener {
             RxPermissions(this).request(Manifest.permission.INTERNET).subscribe {
