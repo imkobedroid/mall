@@ -1,4 +1,4 @@
-package mall.kotlin.com.baselibrary.common.ui.activity
+package mall.kotlin.com.baselibrary.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 

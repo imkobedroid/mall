@@ -1,9 +1,9 @@
-package mall.kotlin.com.baselibrary.common.ext
+package mall.kotlin.com.baselibrary.ext
 
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import mall.kotlin.com.baselibrary.common.rx.BaseSubscribe
+import mall.kotlin.com.baselibrary.rx.BaseSubscribe
 
 /**
  * @author Dsh  on 2018/4/12.

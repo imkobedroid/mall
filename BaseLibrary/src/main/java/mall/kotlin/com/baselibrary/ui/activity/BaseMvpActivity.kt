@@ -1,7 +1,7 @@
-package mall.kotlin.com.baselibrary.common.ui.activity
+package mall.kotlin.com.baselibrary.ui.activity
 
-import mall.kotlin.com.baselibrary.common.presenter.BasePresenter
-import mall.kotlin.com.baselibrary.common.presenter.view.BaseView
+import mall.kotlin.com.baselibrary.presenter.BasePresenter
+import mall.kotlin.com.baselibrary.presenter.view.BaseView
 
 /**
  * @author Dsh  on 2018/4/10.

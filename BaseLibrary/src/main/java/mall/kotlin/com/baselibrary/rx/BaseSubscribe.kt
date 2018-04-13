@@ -1,4 +1,4 @@
-package mall.kotlin.com.baselibrary.common.rx
+package mall.kotlin.com.baselibrary.rx
 
 import io.reactivex.subscribers.ResourceSubscriber
 
