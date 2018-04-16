@@ -3,6 +3,8 @@ package com.kotlin.usercenter.ui
 import android.Manifest
 import android.os.Bundle
 import com.kotlin.usercenter.R
+import com.kotlin.usercenter.injection.component.DaggerUserComponent
+import com.kotlin.usercenter.injection.module.UserModule
 import com.kotlin.usercenter.presenter.RegisterPresenter
 import com.kotlin.usercenter.presenter.view.RegisterView
 import com.tbruyelle.rxpermissions2.RxPermissions
@@ -18,8 +20,8 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+        initInjection()
 
-        mPresenter.mView = this
         button.setOnClickListener {
             RxPermissions(this).request(Manifest.permission.INTERNET).subscribe {
                 if (it) {
@@ -28,5 +30,10 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             }
         }
 
+    }
+
+    private fun initInjection() {
+        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
+        mPresenter.mView = this
     }
 }

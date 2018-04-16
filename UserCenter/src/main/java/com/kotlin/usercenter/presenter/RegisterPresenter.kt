@@ -1,7 +1,7 @@
 package com.kotlin.usercenter.presenter
 
 import com.kotlin.usercenter.presenter.view.RegisterView
-import com.kotlin.usercenter.service.impl.UserServiceImpl
+import com.kotlin.usercenter.service.UserService
 import mall.kotlin.com.baselibrary.ext.execute
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
@@ -12,10 +12,8 @@ import javax.inject.Inject
  */
 open class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
-
+     @Inject lateinit var userService: UserService
     fun register(mobile: String, code: String, pwd: String) {
-        val userService = UserServiceImpl()
-
         userService.register(mobile, pwd, code).execute(object : BaseSubscribe<Boolean>() {
             override fun onNext(t: Boolean) {
                 mView.registerResult(t)

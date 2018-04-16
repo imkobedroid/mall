@@ -8,7 +8,7 @@ buildscript {
     ext.retrofit = '2.4.0'
     ext.okhttp='3.10.0'
     ext.rxpermission='0.9.5@aar'
-    ext.dagger2='2.0.2'
+    ext.dagger2='2.15'
     repositories {
         google()
         jcenter()
