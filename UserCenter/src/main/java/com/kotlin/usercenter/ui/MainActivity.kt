@@ -9,6 +9,7 @@ import com.kotlin.usercenter.presenter.RegisterPresenter
 import com.kotlin.usercenter.presenter.view.RegisterView
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.login.*
+import mall.kotlin.com.baselibrary.injection.component.ActivityComponent
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
 import org.jetbrains.anko.toast
 
@@ -33,7 +34,7 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
     }
 
     private fun initInjection() {
-        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
+        DaggerUserComponent.builder().activityComponent(activityComponent).userModule(UserModule()).build().inject(this)
         mPresenter.mView = this
     }
 }
