@@ -27,6 +27,7 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             RxPermissions(this).request(Manifest.permission.INTERNET).subscribe {
                 if (it) {
                     mPresenter.register("15608073947", "1111", "930529")
+                    mPresenter.register2("15608073947", "1111", "930529")
                 }
             }
         }

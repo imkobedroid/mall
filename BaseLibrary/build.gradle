@@ -49,5 +49,8 @@ dependencies {
     compile "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermission"
     compile "com.google.dagger:dagger:$dagger2"
     kapt "com.google.dagger:dagger-compiler:$dagger2"
+    compile "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rxlifecycle"
+    compile "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle"
+
 }
 

@@ -1,9 +1,8 @@
 package mall.kotlin.com.baselibrary.ui.activity
 
-import android.support.v7.app.AppCompatActivity
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**
- * @author Dsh toushihiroshi on 2018/4/10.
+ * @author Dsh  on 2018/4/10.
  */
-open class BaseActivity :AppCompatActivity(){
-}
+open class BaseActivity :RxAppCompatActivity()

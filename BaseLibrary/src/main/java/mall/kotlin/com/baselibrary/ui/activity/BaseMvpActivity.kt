@@ -5,6 +5,7 @@ import mall.kotlin.com.baselibrary.common.BaseApplication
 import mall.kotlin.com.baselibrary.injection.component.ActivityComponent
 import mall.kotlin.com.baselibrary.injection.component.DaggerActivityComponent
 import mall.kotlin.com.baselibrary.injection.module.ActivityModule
+import mall.kotlin.com.baselibrary.injection.module.LifecycleProviderModule
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
 import mall.kotlin.com.baselibrary.presenter.view.BaseView
 import javax.inject.Inject
@@ -31,13 +32,15 @@ open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initActivityInjection()
-
     }
 
     private fun initActivityInjection() {
-        activityComponent = DaggerActivityComponent.builder().appComponent((application as BaseApplication).appComponent).activityModule(ActivityModule(this)).build()
+        activityComponent = DaggerActivityComponent.builder()
+                .appComponent((application as BaseApplication).appComponent)
+                .activityModule(ActivityModule(this))
+                .lifecycleProviderModule(LifecycleProviderModule(this))
+                .build()
 
     }
 }

@@ -9,6 +9,7 @@ buildscript {
     ext.okhttp='3.10.0'
     ext.rxpermission='0.9.5@aar'
     ext.dagger2='2.15'
+    ext.rxlifecycle='2.2.1'
     repositories {
         google()
         jcenter()
