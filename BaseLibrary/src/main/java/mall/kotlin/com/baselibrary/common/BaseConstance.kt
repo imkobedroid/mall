@@ -5,7 +5,8 @@ package mall.kotlin.com.baselibrary.common
  */
 class BaseConstance {
     companion object {
-        val BASE_URL="http://192.168.0.100:8080/"
+       // val BASE_URL="http://192.168.0.100:8080/"
+        val BASE_URL="http://www.fzwdyw.com"
         val TIME_OUT:Long=30
     }
 }

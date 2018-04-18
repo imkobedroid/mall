@@ -2,9 +2,11 @@ package com.kotlin.usercenter.presenter
 
 import com.kotlin.usercenter.presenter.view.RegisterView
 import com.kotlin.usercenter.service.UserService
+import com.kotlin.usercenter.ui.ServiceBean
 import mall.kotlin.com.baselibrary.ext.execute
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -17,23 +19,24 @@ open class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>
     @field:[Named("service")]
     lateinit var userService: UserService
 
-    @Inject
-    @field:[Named("service2")]
-    lateinit var userService2: UserService
 
     fun register(mobile: String, code: String, pwd: String) {
         userService.register(mobile, pwd, code).execute(object : BaseSubscribe<Boolean>() {
             override fun onNext(t: Boolean) {
                 mView.registerResult(t)
             }
-        },lifecycleProvider)
+        }, lifecycleProvider)
     }
 
-    fun register2(mobile: String, code: String, pwd: String) {
-        userService2.register(mobile, pwd, code).execute(object : BaseSubscribe<Boolean>() {
-            override fun onNext(t: Boolean) {
-                mView.registerResult(t)
+
+    fun getService(app_id: String, nonce: String, sign: String, method: String, uid: String) {
+        userService.questService(app_id, nonce, sign, method, uid).execute(object : BaseSubscribe<ServiceBean>() {
+            override fun onNext(t: ServiceBean) {
+                super.onNext(t)
+                mView.getService(t)
             }
-        },lifecycleProvider)
+        }, lifecycleProvider)
     }
+
+
 }

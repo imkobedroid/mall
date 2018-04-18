@@ -13,7 +13,7 @@ import javax.inject.Inject
 /**
  * @author Dsh  on 2018/4/10.
  */
-open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
+abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
     lateinit var activityComponent: ActivityComponent
 
     @Inject
@@ -33,7 +33,10 @@ open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActivityInjection()
+        injectComponent()
     }
+
+    abstract fun injectComponent()
 
     private fun initActivityInjection() {
         activityComponent = DaggerActivityComponent.builder()

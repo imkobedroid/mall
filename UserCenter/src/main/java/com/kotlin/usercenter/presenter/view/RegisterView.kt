@@ -1,5 +1,6 @@
 package com.kotlin.usercenter.presenter.view
 
+import com.kotlin.usercenter.ui.ServiceBean
 import mall.kotlin.com.baselibrary.presenter.view.BaseView
 
 /**
@@ -9,4 +10,6 @@ import mall.kotlin.com.baselibrary.presenter.view.BaseView
 interface RegisterView :BaseView {
 
      fun registerResult(b:Boolean)
+
+     fun getService(b:ServiceBean)
 }
