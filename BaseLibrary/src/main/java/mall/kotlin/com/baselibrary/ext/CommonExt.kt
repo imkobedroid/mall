@@ -26,6 +26,6 @@ fun View.onClick(onClickListener: View.OnClickListener) {
 /**
  * 传入一个lambda表达式来进行扩展(只需要关心你执行的方法)
  */
-fun View.onClick(method: () -> Unit) {
+fun View.onClick(method: () -> Boolean) {
     this.setOnClickListener { method }
 }
