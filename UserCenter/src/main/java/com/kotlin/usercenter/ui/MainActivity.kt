@@ -47,7 +47,9 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         }
     }
 
-
+    /**
+     * 测试双击退出
+     */
     override fun onBackPressed() {
         val time1 = System.currentTimeMillis()
         if (time1 - time > 2000) {
