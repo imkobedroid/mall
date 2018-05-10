@@ -35,6 +35,12 @@
         android:textColor="@color/common_black"
         android:textSize="14sp" />
 
+    <mall.kotlin.com.baselibrary.widgets.VerifyButton
+        android:layout_width="match_parent"
+        android:text="获取验证码"
+        android:id="@+id/questCode"
+        android:layout_height="wrap_content" />
+
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button"

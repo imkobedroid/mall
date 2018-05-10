@@ -14,6 +14,7 @@ import mall.kotlin.com.baselibrary.common.AppManager
 import mall.kotlin.com.baselibrary.ext.onClick
 import mall.kotlin.com.baselibrary.injection.component.ActivityComponent
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
+import mall.kotlin.com.baselibrary.widgets.VerifyButton
 import org.jetbrains.anko.toast
 
 class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
@@ -42,6 +43,18 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             }
 
         }
+
+
+
+        questCode.setOnVerifyBtnClick(object : VerifyButton.OnVerifyBtnClick{
+            override fun onClick() {
+                toast("获取验证码")
+            }
+
+        })
+
+        questCode.setOnClickListener { questCode.requestSendVerifyNumber() }
+
     }
 
     /**
