@@ -20,9 +20,7 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
 
     private var time: Long = 0
-    override fun getService(b: ServiceBean) {
-        toast("服务器个数为${b.configs.size}")
-    }
+
 
     override fun injectComponent() {
         DaggerUserComponent.builder().activityComponent(activityComponent)
@@ -38,12 +36,9 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
         button.setOnClickListener {
-
-            showLoading()
+            //showLoading()
             RxPermissions(this).request(Manifest.permission.INTERNET).subscribe {
-                if (it) {
-                    mPresenter.getService("08ccx61c-b257-1xe5-d20b-h7b1gc5f1d2h", "5", "701b4f5f746b4d48", "vpn.list", "1")
-                }
+                 mPresenter.register(account.text.toString(),code.text.toString(),password.text.toString())
             }
 
         }

@@ -16,10 +16,6 @@ class UserServiceImpl @Inject constructor() : UserService {
     @Inject
     lateinit var repository: UserRepository
 
-    override fun questService(app_id: String, nonce: String, sign: String, method: String, uid: String): Flowable<ServiceBean> {
-        return repository.getService(app_id,nonce,sign,method,uid)
-    }
-
     override fun register(mobile: String, code: String, pwd: String): Flowable<Boolean> {
         return repository.register(mobile, pwd, code).flatMap(BaseFuncBoolean())
     }

@@ -1,5 +1,6 @@
 package com.kotlin.usercenter.presenter
 
+import android.util.Log
 import com.kotlin.usercenter.presenter.view.RegisterView
 import com.kotlin.usercenter.service.UserService
 import com.kotlin.usercenter.ui.ServiceBean
@@ -21,22 +22,16 @@ open class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>
 
 
     fun register(mobile: String, code: String, pwd: String) {
-        userService.register(mobile, pwd, code).execute(object : BaseSubscribe<Boolean>() {
+
+        if (!checkNetWork()) {
+            Log.v("网络", "不可用")
+            return
+        }
+        mView.showLoading()
+        userService.register(mobile, pwd, code).execute(object : BaseSubscribe<Boolean>(mView) {
             override fun onNext(t: Boolean) {
                 mView.registerResult(t)
             }
         }, lifecycleProvider)
     }
-
-
-    fun getService(app_id: String, nonce: String, sign: String, method: String, uid: String) {
-        userService.questService(app_id, nonce, sign, method, uid).execute(object : BaseSubscribe<ServiceBean>() {
-            override fun onNext(t: ServiceBean) {
-                super.onNext(t)
-                mView.getService(t)
-            }
-        }, lifecycleProvider)
-    }
-
-
 }

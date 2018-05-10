@@ -11,5 +11,4 @@ interface RegisterView :BaseView {
 
      fun registerResult(b:Boolean)
 
-     fun getService(b:ServiceBean)
 }

@@ -17,14 +17,4 @@ class UserRepository @Inject constructor() {
     fun register(mobile: String, pwd: String, code: String): Flowable<BaseResp<String>> {
         return RetrofitFactory.instance.createApi(UserApi::class.java).register(RegisterReq(mobile, pwd, code))
     }
-
-
-    fun getService(app_id: String,
-                   nonce: String,
-                   sign: String,
-                   method: String,
-                   uid: String): Flowable<ServiceBean> {
-        return RetrofitFactory.instance.createApi(UserApi::class.java).questServiceData(app_id,nonce,sign,method,uid)
-
-    }
 }
