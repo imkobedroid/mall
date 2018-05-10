@@ -38,6 +38,8 @@ class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
         button.setOnClickListener {
+
+            showLoading()
             RxPermissions(this).request(Manifest.permission.INTERNET).subscribe {
                 if (it) {
                     mPresenter.getService("08ccx61c-b257-1xe5-d20b-h7b1gc5f1d2h", "5", "701b4f5f746b4d48", "vpn.list", "1")
