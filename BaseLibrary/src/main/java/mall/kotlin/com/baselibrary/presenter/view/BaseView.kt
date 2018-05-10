@@ -7,5 +7,5 @@ interface BaseView {
 
     fun showLoading()
     fun hideLoading()
-    fun showError()
+    fun showError(message:String)
 }

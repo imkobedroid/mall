@@ -1,6 +1,8 @@
 package mall.kotlin.com.baselibrary.common
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
 import mall.kotlin.com.baselibrary.injection.component.AppComponent
 import mall.kotlin.com.baselibrary.injection.component.DaggerAppComponent
 import mall.kotlin.com.baselibrary.injection.module.AppModule
@@ -15,9 +17,15 @@ class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         initInjection()
+        context=this
     }
 
     private fun initInjection() {
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+    }
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context:Context
     }
 }

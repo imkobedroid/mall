@@ -9,5 +9,7 @@ class BaseConstance {
         /*val BASE_URL="http://www.fzwdyw.com"*/
         val BASE_URL="http://120.79.59.193:8080/Kotlin_Server/"
         val TIME_OUT:Long=30
+
+        const val TABLE_PREFS="kotlin_mall"
     }
 }

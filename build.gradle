@@ -10,6 +10,9 @@ buildscript {
     ext.rxpermission='0.9.5@aar'
     ext.dagger2='2.15'
     ext.rxlifecycle='2.2.1'
+    ext.android_support_version = "26.1.0"
+    ext.glide_version = "3.7.0"
+
     repositories {
         google()
         jcenter()

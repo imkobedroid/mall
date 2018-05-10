@@ -1,6 +1,5 @@
 package mall.kotlin.com.baselibrary.ui.activity
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import mall.kotlin.com.baselibrary.common.BaseApplication
 import mall.kotlin.com.baselibrary.injection.component.ActivityComponent
@@ -10,6 +9,7 @@ import mall.kotlin.com.baselibrary.injection.module.LifecycleProviderModule
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
 import mall.kotlin.com.baselibrary.presenter.view.BaseView
 import mall.kotlin.com.baselibrary.widgets.ProgressLoading
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 /**
@@ -33,7 +33,8 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         mLoadingDialog.hideLoading()
     }
 
-    override fun showError() {
+    override fun showError(message:String) {
+       toast(message)
     }
 
 
