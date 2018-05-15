@@ -2,6 +2,8 @@ package mall.kotlin.com.baselibrary.rx
 
 import io.reactivex.Flowable
 import io.reactivex.functions.Function
+import io.reactivex.subjects.ReplaySubject
+import mall.kotlin.com.baselibrary.common.ResultCode
 import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 
 
@@ -10,7 +12,7 @@ import mall.kotlin.com.baselibrary.data.protocol.BaseResp
  */
 class BaseFuncBoolean<T> :Function<BaseResp<T>,Flowable<Boolean>> {
     override fun apply(t: BaseResp<T>): Flowable<Boolean> {
-        if (t.status != 1) {
+        if (t.status != ResultCode.SUCCEED) {
             return Flowable.error(BaseException(t.status, t.message))
         }
             return Flowable.just(true)

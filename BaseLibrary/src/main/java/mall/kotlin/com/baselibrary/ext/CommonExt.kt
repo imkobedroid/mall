@@ -1,11 +1,14 @@
 package mall.kotlin.com.baselibrary.ext
 
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import com.trello.rxlifecycle2.LifecycleProvider
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
+import mall.kotlin.com.baselibrary.widgets.DefaultTextWatcher
 
 /**
  * @author Dsh  on 2018/4/12.
@@ -28,4 +31,17 @@ fun View.onClick(onClickListener: View.OnClickListener) {
  */
 fun View.onClick(method: () -> Boolean) {
     this.setOnClickListener { method }
+}
+
+
+/**
+ * 监听文本变化 让button变色
+ */
+fun Button.enable(edt: EditText, method: () -> Boolean) {
+    val btn = this
+    edt.addTextChangedListener(object : DefaultTextWatcher() {
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            btn.isEnabled = method()
+        }
+    })
 }

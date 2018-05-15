@@ -6,9 +6,13 @@ import mall.kotlin.com.baselibrary.presenter.view.BaseView
 /**
  * @author Dsh  on 2018/4/12.
  */
-open class BaseSubscribe<T> (val baseView:BaseView?): ResourceSubscriber<T>() {
+open class BaseSubscribe<T> (private val baseView:BaseView?): ResourceSubscriber<T>() {
     override fun onError(t: Throwable?) {
         baseView?.hideLoading()
+
+        if (t is BaseException){
+            baseView?.showError(t.msg)
+        }
     }
 
 
