@@ -1,5 +1,6 @@
 package com.kotlin.usercenter.service
 
+import com.kotlin.usercenter.data.protocol.UserInfo
 import io.reactivex.Flowable
 
 /**
@@ -7,4 +8,6 @@ import io.reactivex.Flowable
  */
 interface UserService {
     fun register(mobile:String,code:String,pwd:String):Flowable<Boolean>
+
+    fun login(mobile:String,pwd:String,pushId:String):Flowable<UserInfo>
 }

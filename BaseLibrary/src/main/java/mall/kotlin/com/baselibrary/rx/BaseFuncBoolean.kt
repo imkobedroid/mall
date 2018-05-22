@@ -2,7 +2,6 @@ package mall.kotlin.com.baselibrary.rx
 
 import io.reactivex.Flowable
 import io.reactivex.functions.Function
-import io.reactivex.subjects.ReplaySubject
 import mall.kotlin.com.baselibrary.common.ResultCode
 import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 

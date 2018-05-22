@@ -10,11 +10,9 @@ import com.kotlin.usercenter.presenter.RegisterPresenter
 import com.kotlin.usercenter.presenter.view.RegisterView
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.login.*
 import mall.kotlin.com.baselibrary.common.AppManager
 import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
-import mall.kotlin.com.baselibrary.widgets.VerifyButton
 import org.jetbrains.anko.toast
 
 class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {

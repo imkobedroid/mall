@@ -7,6 +7,9 @@ import com.trello.rxlifecycle2.LifecycleProvider
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import mall.kotlin.com.baselibrary.data.protocol.BaseResp
+import mall.kotlin.com.baselibrary.rx.BaseFunc
+import mall.kotlin.com.baselibrary.rx.BaseFuncBoolean
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
 import mall.kotlin.com.baselibrary.widgets.DefaultTextWatcher
 
@@ -44,4 +47,20 @@ fun Button.enable(edt: EditText, method: () -> Boolean) {
             btn.isEnabled = method()
         }
     })
+
+
+
+    /*
+    扩展数据转换
+ */
+    fun <T> Flowable<BaseResp<T>>.convert(): Flowable<T> {
+        return this.flatMap(BaseFunc())
+    }
+
+    /*
+        扩展Boolean类型数据转换
+     */
+    fun <T> Flowable<BaseResp<T>>.convertBoolean(): Flowable<Boolean> {
+        return this.flatMap(BaseFuncBoolean())
+    }
 }
