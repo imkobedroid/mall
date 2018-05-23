@@ -1,5 +1,6 @@
 package mall.kotlin.com.baselibrary.widgets
 
+import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -28,6 +29,8 @@ class HeaderBar @JvmOverloads constructor(
 
         initView()
         typedArray.recycle()
+
+        mLeftIv.setOnClickListener { (context as? Activity)?.finish() }
     }
 
     private fun initView() {
@@ -39,4 +42,10 @@ class HeaderBar @JvmOverloads constructor(
             mRightTv.visibility = visibility
         }
     }
+
+
+    fun getRightView(): View {
+        return mRightTv
+    }
+
 }

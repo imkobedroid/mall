@@ -1,7 +1,6 @@
 package com.kotlin.usercenter.presenter
 
-import com.kotlin.usercenter.data.protocol.UserInfo
-import com.kotlin.usercenter.presenter.view.LoginView
+import com.kotlin.usercenter.presenter.view.ResetPwdView
 import com.kotlin.usercenter.service.UserService
 import mall.kotlin.com.baselibrary.ext.execute
 import mall.kotlin.com.baselibrary.presenter.BasePresenter
@@ -12,20 +11,20 @@ import javax.inject.Named
 /**
  * @author Dsh  on 2018/4/10.
  */
-open class LoginPresenter @Inject constructor() : BasePresenter<LoginView>() {
+open class ResetPwdPresenter @Inject constructor() : BasePresenter<ResetPwdView>() {
 
     @Inject
     @field:[Named("service")]
     lateinit var userService: UserService
 
-    fun login(mobile: String, pwd: String, pushId: String) {
+    fun resetPwd(mobile: String, code: String) {
         if (!checkNetWork()) {
             return
         }
         mView.showLoading()
-        userService.login(mobile, pwd, pushId).execute(object : BaseSubscribe<UserInfo>(mView) {
-            override fun onNext(t: UserInfo) {
-                mView.loginResult(t)
+        userService.restPwd(mobile, code).execute(object : BaseSubscribe<Boolean>(mView) {
+            override fun onNext(t: Boolean) {
+                mView.resetPwdResult(t)
             }
         }, lifecycleProvider)
     }

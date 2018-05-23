@@ -15,7 +15,7 @@ import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
 import org.jetbrains.anko.toast
 
-class MainActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {

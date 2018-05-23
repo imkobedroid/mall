@@ -4,30 +4,30 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.kotlin.usercenter.R
-import com.kotlin.usercenter.data.protocol.UserInfo
 import com.kotlin.usercenter.injection.component.DaggerUserComponent
 import com.kotlin.usercenter.injection.module.UserModule
-import com.kotlin.usercenter.presenter.LoginPresenter
-import com.kotlin.usercenter.presenter.view.LoginView
-import kotlinx.android.synthetic.main.activity_login.*
+import com.kotlin.usercenter.presenter.ForgetPwdPresenter
+import com.kotlin.usercenter.presenter.view.ForgetPwdView
+import kotlinx.android.synthetic.main.activity_forget_pwd.*
 import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 @SuppressLint("Registered")
-class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
-    override fun loginResult(b: UserInfo) {
-        toast(b.userMobile)
+class ForgetPwdActivity : BaseMvpActivity<ForgetPwdPresenter>(), ForgetPwdView, View.OnClickListener {
+    override fun forgetPwdResult(b: Boolean) {
+        if (b) startActivity<ResetPwdActivity>("mobile" to mMobileEt.text.toString())
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.mLoginBtn -> {
-                mPresenter.login(mMobileEt.text.toString(), mPwdEt.text.toString(), "")
+            R.id.mVerifyCodeBtn -> {
+                mVerifyCodeBtn.requestSendVerifyNumber()
+                toast("发送验证码成功")
             }
-            R.id.mRightTv ->startActivity<RegisterActivity>()
-            R.id.mForgetPwdTv -> startActivity<ForgetPwdActivity>()
+
+            R.id.mNextBtn -> mPresenter.forgetPwd(mMobileEt.text.toString(), mVerifyCodeEt.text.toString())
         }
     }
 
@@ -40,7 +40,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_forget_pwd)
         initView()
     }
 
@@ -49,15 +49,17 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
      * 初始化视图
      */
     private fun initView() {
-        mLoginBtn.enable(mMobileEt, { isBtnEnable() })
-        mLoginBtn.enable(mPwdEt, { isBtnEnable() })
-        mLoginBtn.setOnClickListener(this)
-        mHeaderBar.getRightView().setOnClickListener(this)
-        mForgetPwdTv.setOnClickListener(this)
+
+        mNextBtn.enable(mMobileEt, { isBtnEnable() })
+        mNextBtn.enable(mVerifyCodeEt, { isBtnEnable() })
+        mNextBtn.setOnClickListener(this)
+        mVerifyCodeBtn.setOnClickListener(this)
+
     }
+
 
     private fun isBtnEnable(): Boolean {
         return mMobileEt.text.isNullOrEmpty().not() and
-                mMobileEt.text.isNullOrEmpty().not()
+                mVerifyCodeEt.text.isNullOrEmpty().not()
     }
 }
