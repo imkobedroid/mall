@@ -62,6 +62,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile "com.google.dagger:dagger:$dagger2"
     kapt "com.google.dagger:dagger-compiler:$dagger2"
+
 }
 repositories {
     mavenCentral()

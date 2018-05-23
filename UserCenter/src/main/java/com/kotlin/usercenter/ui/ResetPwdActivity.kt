@@ -11,12 +11,15 @@ import com.kotlin.usercenter.presenter.view.ResetPwdView
 import kotlinx.android.synthetic.main.activity_reset_pwd.*
 import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
+import org.jetbrains.anko.clearTop
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.toast
 
 @SuppressLint("Registered")
 class ResetPwdActivity : BaseMvpActivity<ResetPwdPresenter>(), ResetPwdView, View.OnClickListener {
     override fun resetPwdResult(b: Boolean) {
-        if (b) finish()
+        if (b) startActivity(intentFor<LoginActivity>().singleTop().clearTop())
     }
 
     override fun onClick(v: View?) {

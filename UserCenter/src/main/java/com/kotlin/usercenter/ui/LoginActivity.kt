@@ -13,13 +13,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 @SuppressLint("Registered")
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
     override fun loginResult(b: UserInfo) {
-        toast(b.userMobile)
+    startActivity<UserInfoActivity>()
     }
+
 
     override fun onClick(v: View?) {
         when (v?.id) {
