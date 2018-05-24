@@ -12,5 +12,7 @@ class BaseConstance {
         const val IMAGE_SERVER_ADDRESS = "http://osea2fxp7.bkt.clouddn.com/"
 
         const val TABLE_PREFS="kotlin_mall"
+        //Token Key
+        const val KEY_SP_TOKEN = "token"
     }
 }

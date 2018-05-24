@@ -22,4 +22,7 @@ interface UserApi {
     @POST("userCenter/restPwd")
     fun restPwd(@Body rep: RestPwdReq):Flowable<BaseResp<String>>
 
+    @POST("userCenter/editUser")
+    fun editUser(@Body rep: EditUserReq):Flowable<BaseResp<UserInfo >>
+
 }

@@ -14,16 +14,20 @@ import com.bigkoo.alertview.OnItemClickListener
 import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
 import com.jph.takephoto.model.TResult
+import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.usercenter.R
+import com.kotlin.usercenter.data.protocol.UserInfo
 import com.kotlin.usercenter.injection.component.DaggerUserComponent
 import com.kotlin.usercenter.injection.module.UserModule
 import com.kotlin.usercenter.presenter.UserInfoPresenter
 import com.kotlin.usercenter.presenter.view.UserInfoView
+import com.kotlin.usercenter.utils.UserPrefsUtils
 import com.qiniu.android.storage.UploadManager
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_user_info.*
 import mall.kotlin.com.baselibrary.common.BaseConstance
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
+import mall.kotlin.com.baselibrary.utils.AppPrefsUtils
 import mall.kotlin.com.baselibrary.utils.DateUtils
 import mall.kotlin.com.baselibrary.utils.GlideUtils
 import org.jetbrains.anko.toast
@@ -39,6 +43,13 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
     private var mLocalFile: String? = null
     private var mRemoteFile: String? = null
     private val mUploadManager: UploadManager by lazy { UploadManager() }
+
+    private var mUserIcon: String? = null
+    private var mUserName: String? = null
+    private var mUserGender: String? = null
+    private var mUserSign: String? = null
+    private var mUserMobile: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
@@ -46,6 +57,22 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
         mTakePhoto.onCreate(savedInstanceState)
         rxPermission = RxPermissions(this)
         initView()
+        initData()
+    }
+
+    private fun initData() {
+        mUserIcon = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_ICON)
+        mRemoteFile = mUserIcon
+        mUserName = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_NAME)
+        mUserGender = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_GENDER)
+        mUserSign = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_SIGN)
+        mUserMobile = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_MOBILE)
+
+        mUserIcon?.let { GlideUtils.loadImageFitCenter(this, it, mUserIconIv) }
+        mUserName?.let { mUserNameEt.setText(it) }
+        mUserSign?.let { mUserSignEt.setText(it) }
+        mUserMobile?.let { mUserMobileTv.text = it }
+        if (mUserGender == "0") mGenderMaleRb.isChecked=true else mGenderFemaleRb.isChecked=true
     }
 
 
@@ -54,6 +81,7 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
      */
     private fun initView() {
         mUserIconView.setOnClickListener(this)
+        mHeaderBar.getRightView().setOnClickListener(this)
     }
 
 
@@ -96,7 +124,15 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.mUserIconView -> showAlertView()
+            R.id.mRightTv -> mPresenter.editUser(mRemoteFile!!,
+                    mUserNameEt.text?.toString() ?: "",
+                    if (mGenderMaleRb.isChecked) "0" else "1",
+                    mUserSignEt.text?.toString() ?: "")
         }
+    }
+
+    override fun editUser(userInfo: UserInfo) {
+        UserPrefsUtils.putUserInfo(userInfo)
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)

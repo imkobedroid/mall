@@ -29,4 +29,9 @@ class UserRepository @Inject constructor() {
         return RetrofitFactory.instance.createApi(UserApi::class.java).restPwd(RestPwdReq(account, pwd))
     }
 
+    fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Flowable<BaseResp<UserInfo>>{
+        return RetrofitFactory.instance.createApi(UserApi::class.java).editUser(EditUserReq(userIcon,userName,userGender,userSign))
+    }
+
+
 }

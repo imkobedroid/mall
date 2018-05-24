@@ -9,6 +9,7 @@ import com.kotlin.usercenter.injection.component.DaggerUserComponent
 import com.kotlin.usercenter.injection.module.UserModule
 import com.kotlin.usercenter.presenter.LoginPresenter
 import com.kotlin.usercenter.presenter.view.LoginView
+import com.kotlin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
@@ -17,7 +18,8 @@ import org.jetbrains.anko.startActivity
 @SuppressLint("Registered")
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
     override fun loginResult(b: UserInfo) {
-    startActivity<UserInfoActivity>()
+        UserPrefsUtils.putUserInfo(b)
+        startActivity<UserInfoActivity>()
     }
 
 
@@ -26,7 +28,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
             R.id.mLoginBtn -> {
                 mPresenter.login(mMobileEt.text.toString(), mPwdEt.text.toString(), "")
             }
-            R.id.mRightTv ->startActivity<RegisterActivity>()
+            R.id.mRightTv -> startActivity<RegisterActivity>()
             R.id.mForgetPwdTv -> startActivity<ForgetPwdActivity>()
         }
     }

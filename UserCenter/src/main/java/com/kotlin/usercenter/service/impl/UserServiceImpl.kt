@@ -12,10 +12,12 @@ import mall.kotlin.com.baselibrary.ext.convertBoolean
  * @author Dsh  on 2018/4/12.
  */
 class UserServiceImpl @Inject constructor() : UserService {
-
-
     @Inject
     lateinit var repository: UserRepository
+
+    override fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Flowable<UserInfo> {
+        return repository.editUser(userIcon,userName,userGender,userSign).convert()
+    }
 
     override fun restPwd(mobile: String, pwd: String): Flowable<Boolean> {
         return repository.restPwd(mobile,pwd).convertBoolean()

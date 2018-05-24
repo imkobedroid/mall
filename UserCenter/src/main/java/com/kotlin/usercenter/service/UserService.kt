@@ -11,4 +11,5 @@ interface UserService {
     fun login(mobile: String, pwd: String, pushId: String): Flowable<UserInfo>
     fun forgetPwd(mobile: String, code: String): Flowable<Boolean>
     fun restPwd(mobile: String, pwd: String): Flowable<Boolean>
+    fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Flowable<UserInfo>
 }
