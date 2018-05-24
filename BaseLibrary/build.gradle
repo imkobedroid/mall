@@ -58,7 +58,15 @@ dependencies {
     compile "com.bigkoo:alertview:${alert_view_version}"
     //noinspection GradleDynamicVersion
     compile "com.qiniu:qiniu-android-sdk:7.3.+"
-
-
+    compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
+    compile 'com.youth.banner:banner:1.4.10'  //最新版本
+    compile 'com.github.shts:TriangleLabelView:1.1.2'
+    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
+    compile "com.github.Kennyc1012:MultiStateView:$multi_state_view_version"
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
+    compile 'com.eightbitlab:rxbus:1.0.2'
+    compile 'com.zhy:flowlayout-lib:1.0.3'
+    compile "com.alibaba:arouter-api:$arouter_api_version"
+    compile 'q.rorbin:badgeview:1.1.2'
 }
 
