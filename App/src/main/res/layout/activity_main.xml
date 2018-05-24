@@ -3,8 +3,14 @@
     style="@style/MatchMatch.Vertical"
     android:gravity="bottom">
 
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
     <mall.kotlin.com.baselibrary.widgets.BottomNavBar
-        style="@style/MatchWrap"
         android:id="@+id/bottom_navigation_bar"
+        style="@style/MatchWrap"
         android:layout_gravity="bottom" />
 </LinearLayout>

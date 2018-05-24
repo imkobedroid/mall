@@ -1,13 +1,11 @@
 package mall.kotlin.com.kotlinmall.ui.activity
 
-import android.support.v7.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
-import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import mall.kotlin.com.kotlinmall.R
-import java.util.concurrent.TimeUnit
+import mall.kotlin.com.kotlinmall.ui.fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,14 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         bottom_navigation_bar.checkCartBadge(10)
         bottom_navigation_bar.checkMsgBadge(false)
+  initView()
 
+    }
 
-        Flowable.timer(2, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    bottom_navigation_bar.checkCartBadge(20)
-                    bottom_navigation_bar.checkMsgBadge(true)
-                })
+    @SuppressLint("CommitTransaction")
+    private fun initView() {
+        val manage=supportFragmentManager.beginTransaction()
+        manage.replace(R.id.frame_layout,HomeFragment())
+        manage.commit()
     }
 }
