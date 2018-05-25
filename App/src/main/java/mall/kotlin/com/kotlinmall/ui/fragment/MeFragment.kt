@@ -21,8 +21,7 @@ import org.jetbrains.anko.support.v4.startActivity
 /**
  * @author Dsh  on 2018/5/24.
  */
-class MeFragment : BaseFragment(),View.OnClickListener {
-
+class MeFragment : BaseFragment(), View.OnClickListener {
 
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -48,28 +47,31 @@ class MeFragment : BaseFragment(),View.OnClickListener {
     }
 
     private fun loadDate() {
-        if (!isLogin()){
+        if (!isLogin()) {
             mUserIconIv.setImageResource(R.drawable.icon_default_user)
-            mUserNameTv.text="登陆/注册"
+            mUserNameTv.text = "登陆/注册"
 
-        }else{
-         val userIcon=AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_ICON)
-            if(userIcon.isNotEmpty()){
+        } else {
+            val userIcon = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_ICON)
+            if (userIcon.isNotEmpty()) {
                 mUserIconIv.loadUrl(userIcon)
-                mUserNameTv.text=AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_NAME)
+                mUserNameTv.text = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_NAME)
             }
         }
     }
+
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.mUserIconIv,R.id.mUserNameTv ->{
-                if(isLogin()){
+        when (v?.id) {
+            R.id.mUserIconIv, R.id.mUserNameTv -> {
+                if (isLogin()) {
                     startActivity<UserInfoActivity>()
-                }else{
+                } else {
                     startActivity<LoginActivity>()
                 }
             }
-            R.id.mSettingTv ->{startActivity<SettingActivity>()}
+            R.id.mSettingTv -> {
+                startActivity<SettingActivity>()
+            }
         }
     }
 

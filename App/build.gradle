@@ -38,4 +38,5 @@ dependencies {
         implementation project(':UserCenter')
     }
     implementation project(':MessageCenter')
+    implementation project(':goodcenter')
 }
