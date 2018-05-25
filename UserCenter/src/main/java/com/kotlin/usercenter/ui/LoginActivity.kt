@@ -19,7 +19,7 @@ import org.jetbrains.anko.startActivity
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
     override fun loginResult(b: UserInfo) {
         UserPrefsUtils.putUserInfo(b)
-        startActivity<UserInfoActivity>()
+        finish()
     }
 
 

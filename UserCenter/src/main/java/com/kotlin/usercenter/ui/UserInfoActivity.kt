@@ -133,6 +133,7 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>(), UserInfoView, Vie
 
     override fun editUser(userInfo: UserInfo) {
         UserPrefsUtils.putUserInfo(userInfo)
+        finish()
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)

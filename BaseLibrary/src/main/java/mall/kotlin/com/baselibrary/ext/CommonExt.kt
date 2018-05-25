@@ -3,6 +3,7 @@ package mall.kotlin.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.trello.rxlifecycle2.LifecycleProvider
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,6 +12,7 @@ import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 import mall.kotlin.com.baselibrary.rx.BaseFunc
 import mall.kotlin.com.baselibrary.rx.BaseFuncBoolean
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
+import mall.kotlin.com.baselibrary.utils.GlideUtils
 import mall.kotlin.com.baselibrary.widgets.DefaultTextWatcher
 
 /**
@@ -51,7 +53,6 @@ fun Button.enable(edt: EditText, method: () -> Boolean) {
 
 
 
-
 /*
 扩展数据转换
 */
@@ -64,4 +65,12 @@ fun <T> Flowable<BaseResp<T>>.convert(): Flowable<T> {
  */
 fun <T> Flowable<BaseResp<T>>.convertBoolean(): Flowable<Boolean> {
     return this.flatMap(BaseFuncBoolean())
+}
+
+
+/*
+    ImageView加载网络图片
+ */
+fun ImageView.loadUrl(url: String) {
+    GlideUtils.loadUrlImage(context, url, this)
 }

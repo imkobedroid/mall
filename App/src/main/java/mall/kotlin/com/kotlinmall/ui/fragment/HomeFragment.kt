@@ -19,6 +19,8 @@ import mall.kotlin.com.baselibrary.widgets.BannerImageLoader
 import mall.kotlin.com.kotlinmall.R
 import mall.kotlin.com.kotlinmall.common.*
 import mall.kotlin.com.kotlinmall.ui.adapter.HomeDiscountAdapter
+import mall.kotlin.com.kotlinmall.ui.adapter.TopicAdapter
+import me.crosswall.lib.coverflow.CoverFlow
 
 /**
  * @author Dsh  on 2018/5/24.
@@ -37,6 +39,7 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initTopic()
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -59,13 +62,26 @@ class HomeFragment : BaseFragment() {
         initDiscount()
     }
 
-    private fun initDiscount(){
-        val manager=LinearLayoutManager(activity)
-        manager.orientation=LinearLayoutManager.HORIZONTAL
-        mHomeDiscountRv.layoutManager=manager
-        val  discountAdapter=HomeDiscountAdapter(activity)
-        mHomeDiscountRv.adapter=discountAdapter
+    private fun initDiscount() {
+        val manager = LinearLayoutManager(activity)
+        manager.orientation = LinearLayoutManager.HORIZONTAL
+        mHomeDiscountRv.layoutManager = manager
+        val discountAdapter = HomeDiscountAdapter(activity)
+        mHomeDiscountRv.adapter = discountAdapter
         discountAdapter.setData(mutableListOf(HOME_DISCOUNT_ONE, HOME_DISCOUNT_TWO, HOME_DISCOUNT_THREE, HOME_DISCOUNT_FOUR, HOME_DISCOUNT_FIVE))
+    }
+
+
+    /*
+       初始化主题
+    */
+    private fun initTopic() {
+        //话题
+        mTopicPager.adapter = TopicAdapter(context, listOf(HOME_TOPIC_ONE, HOME_TOPIC_TWO, HOME_TOPIC_THREE, HOME_TOPIC_FOUR, HOME_TOPIC_FIVE))
+        mTopicPager.currentItem = 1
+        mTopicPager.offscreenPageLimit = 5
+
+        CoverFlow.Builder().with(mTopicPager).scale(0.3f).pagerMargin(-30.0f).spaceSize(0.0f).build()
     }
 
 }
