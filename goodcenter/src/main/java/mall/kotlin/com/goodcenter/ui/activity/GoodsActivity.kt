@@ -2,6 +2,8 @@ package mall.kotlin.com.goodcenter.ui.activity
 
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder
+import cn.bingoogolapple.refreshlayout.BGARefreshLayout
 import com.kennyc.view.MultiStateView
 import com.kotlin.goods.data.protocol.Goods
 import kotlinx.android.synthetic.main.activity_goods.*
@@ -18,7 +20,8 @@ import mall.kotlin.com.goodcenter.ui.adapter.GoodsAdapter
 /**
  * @author Dsh  on 2018/6/4.
  */
-class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView {
+class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLayout.BGARefreshLayoutDelegate {
+
 
 
     private var mMaxPage: Int = 1
@@ -28,7 +31,16 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goods)
+        initRefreshLayout()
         initView()
+    }
+
+    private fun initRefreshLayout() {
+        mRefreshLayout.setDelegate(this)
+        val viewHolder = BGANormalRefreshViewHolder(this, true)
+        viewHolder.setLoadMoreBackgroundColorRes(R.color.common_bg)
+        viewHolder.setRefreshViewBackgroundColorRes(R.color.common_bg)
+        mRefreshLayout.setRefreshViewHolder(viewHolder)
     }
 
     private fun initView() {
@@ -44,6 +56,9 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView {
     }
 
     override fun onGetGoodsResult(result: MutableList<Goods>?) {
+
+        mRefreshLayout.endLoadingMore()
+        mRefreshLayout.endRefreshing()
         if (result != null && result.size > 0) {
             mMaxPage = result[0].maxPage
             if (mCurrentPage == 1) {
@@ -63,5 +78,21 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView {
         DaggerCategoryComponent.builder().activityComponent(activityComponent).categoryModule(CategoryModule()).build()
                 .inject(this)
         mPresenter.mView = this
+    }
+
+
+    override fun onBGARefreshLayoutBeginLoadingMore(refreshLayout: BGARefreshLayout?): Boolean {
+        return if (mCurrentPage < mMaxPage) {
+            mCurrentPage++
+            loadData()
+            true
+        } else {
+            false
+        }
+    }
+
+    override fun onBGARefreshLayoutBeginRefreshing(refreshLayout: BGARefreshLayout?) {
+        mCurrentPage = 1
+        loadData()
     }
 }
