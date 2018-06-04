@@ -1,6 +1,6 @@
-package mall.kotlin.com.goodcenter.date.protocol
+package com.kotlin.goods.data.protocol
 
-/**
- * @author Dsh toushihiroshi on 2018/5/25.
+/*
+    获取分类列表请求，parentId为0是一级分类
  */
 data class GetCategoryReq (val parentId: Int)

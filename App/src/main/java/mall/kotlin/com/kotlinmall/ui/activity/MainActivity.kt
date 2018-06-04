@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import kotlinx.android.synthetic.main.activity_main.*
+import mall.kotlin.com.goodcenter.ui.fragment.CategoryFragment
 import mall.kotlin.com.kotlinmall.R
 import mall.kotlin.com.kotlinmall.ui.fragment.HomeFragment
 import mall.kotlin.com.kotlinmall.ui.fragment.MeFragment
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mStack = Stack<Fragment>()
     private val mHomeFragment by lazy { HomeFragment() }
-    private val mCategoryFragment by lazy { MeFragment() }
+    private val mCategoryFragment by lazy { CategoryFragment() }
     private val mCartFragment by lazy { MeFragment() }
     private val mMsgFragment by lazy { MeFragment() }
     private val mMeFragment by lazy { MeFragment() }

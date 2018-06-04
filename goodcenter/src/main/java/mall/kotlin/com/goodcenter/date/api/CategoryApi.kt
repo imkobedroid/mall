@@ -1,9 +1,9 @@
 package mall.kotlin.com.goodcenter.date.api
 
+import com.kotlin.goods.data.protocol.Category
+import com.kotlin.goods.data.protocol.GetCategoryReq
 import io.reactivex.Flowable
 import mall.kotlin.com.baselibrary.data.protocol.BaseResp
-import mall.kotlin.com.goodcenter.date.protocol.Category
-import mall.kotlin.com.goodcenter.date.protocol.GetCategoryReq
 import retrofit2.http.Body
 import retrofit2.http.POST
 

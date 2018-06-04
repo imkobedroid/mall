@@ -1,7 +1,7 @@
-package mall.kotlin.com.goodcenter.date.protocol
+package com.kotlin.goods.data.protocol
 
-/**
- * @author Dsh toushihiroshi on 2018/5/25.
+/*
+     商品分类
  */
 data class Category(
         val id: Int, //分类ID

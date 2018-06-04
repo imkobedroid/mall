@@ -1,2 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mall.kotlin.com.goodcenter" />
+    package="mall.kotlin.com.goodcenter">
+
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity android:name=".ui.activity.GoodsActivity" />
+    </application>
+
+
+</manifest>

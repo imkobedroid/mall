@@ -1,19 +1,23 @@
 package mall.kotlin.com.baselibrary.ext
 
+import android.graphics.drawable.AnimationDrawable
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import com.kennyc.view.MultiStateView
 import com.trello.rxlifecycle2.LifecycleProvider
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import mall.kotlin.com.baselibrary.R
 import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 import mall.kotlin.com.baselibrary.rx.BaseFunc
 import mall.kotlin.com.baselibrary.rx.BaseFuncBoolean
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
 import mall.kotlin.com.baselibrary.utils.GlideUtils
 import mall.kotlin.com.baselibrary.widgets.DefaultTextWatcher
+import org.jetbrains.anko.find
 
 /**
  * @author Dsh  on 2018/4/12.
@@ -73,4 +77,19 @@ fun <T> Flowable<BaseResp<T>>.convertBoolean(): Flowable<Boolean> {
  */
 fun ImageView.loadUrl(url: String) {
     GlideUtils.loadUrlImage(context, url, this)
+}
+
+
+fun View.setVisible(b: Boolean) {
+    if (b) this.visibility = View.VISIBLE else this.visibility = View.GONE
+}
+
+/*
+    多状态视图开始加载
+ */
+fun MultiStateView.startLoading() {
+    viewState = MultiStateView.VIEW_STATE_LOADING
+    val loadingView = getView(MultiStateView.VIEW_STATE_LOADING)
+    val animBackground = loadingView!!.find<View>(R.id.loading_anim_view).background
+    (animBackground as AnimationDrawable).start()
 }
