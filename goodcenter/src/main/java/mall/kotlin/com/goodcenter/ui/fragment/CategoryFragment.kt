@@ -14,12 +14,15 @@ import mall.kotlin.com.baselibrary.ext.startLoading
 import mall.kotlin.com.baselibrary.ui.adapter.BaseRecyclerViewAdapter
 import mall.kotlin.com.baselibrary.ui.fragment.BaseMvpFragment
 import mall.kotlin.com.goodcenter.R
+import mall.kotlin.com.goodcenter.common.GoodConstant
 import mall.kotlin.com.goodcenter.injection.component.DaggerCategoryComponent
 import mall.kotlin.com.goodcenter.injection.module.CategoryModule
 import mall.kotlin.com.goodcenter.presenter.CategoryPresenter
 import mall.kotlin.com.goodcenter.presenter.view.CategoryView
+import mall.kotlin.com.goodcenter.ui.activity.GoodsActivity
 import mall.kotlin.com.goodcenter.ui.adapter.SecondCategoryAdapter
 import mall.kotlin.com.goodcenter.ui.adapter.TopCategoryAdapter
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * @author Dsh  on 2018/6/4.
@@ -76,7 +79,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
         mSecondCategoryRv.adapter = secondAdapter
         secondAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<Category> {
             override fun onItemClick(item: Category, position: Int) {
-                //  startActivity<GoodsActivity>(GoodsConstant.KEY_CATEGORY_ID  to item.id)
+                startActivity<GoodsActivity>(GoodConstant.KEY_CATEGORY_ID to item.id)
             }
         })
 
