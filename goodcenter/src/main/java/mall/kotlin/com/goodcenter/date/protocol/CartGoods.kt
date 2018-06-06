@@ -1,4 +1,4 @@
-package com.kotlin.goods.data.protocol
+package mall.kotlin.com.goodcenter.date.protocol
 
 /*
     购物车商品数据类

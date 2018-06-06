@@ -9,6 +9,7 @@ import com.kotlin.goods.data.protocol.Goods
 import kotlinx.android.synthetic.main.activity_goods.*
 import mall.kotlin.com.baselibrary.ext.startLoading
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
+import mall.kotlin.com.baselibrary.ui.adapter.BaseRecyclerViewAdapter
 import mall.kotlin.com.goodcenter.R
 import mall.kotlin.com.goodcenter.common.GoodConstant
 import mall.kotlin.com.goodcenter.injection.component.DaggerCategoryComponent
@@ -16,12 +17,17 @@ import mall.kotlin.com.goodcenter.injection.module.CategoryModule
 import mall.kotlin.com.goodcenter.presenter.GoodsPresenter
 import mall.kotlin.com.goodcenter.presenter.view.GoodsView
 import mall.kotlin.com.goodcenter.ui.adapter.GoodsAdapter
+import org.jetbrains.anko.startActivity
 
 /**
  * @author Dsh  on 2018/6/4.
  */
 class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLayout.BGARefreshLayoutDelegate {
 
+
+    override fun getGoodsDetail(goods: Goods) {
+
+    }
 
 
     private var mMaxPage: Int = 1
@@ -47,6 +53,11 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLa
         mGoodsRv.layoutManager = GridLayoutManager(this, 2)
         mGoodsAdapter = GoodsAdapter(this)
         mGoodsRv.adapter = mGoodsAdapter
+        mGoodsAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<Goods> {
+            override fun onItemClick(item: Goods, position: Int) {
+                startActivity<GoodsDetailActivity>(GoodConstant.KEY_GOODS_ID to item.id)
+            }
+        })
         loadData()
     }
 

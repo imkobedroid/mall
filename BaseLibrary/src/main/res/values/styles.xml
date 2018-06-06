@@ -78,11 +78,11 @@
         <item name="android:layout_height">@dimen/common_header_bar_height
         </item>
     </style>
-   <!-- &lt;!&ndash; TabLayout文字样式&ndash;&gt;
+    <!-- TabLayout文字样式-->
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">@dimen/text_big_size</item>
     </style>
-    &lt;!&ndash; TabLayout通用样式&ndash;&gt;
+    <!-- TabLayout通用样式-->
     <style name="TabsStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -92,13 +92,13 @@
         <item name="tabTextColor">@color/text_light_dark</item>
         <item name="tabSelectedTextColor">@color/common_white</item>
     </style>
-    &lt;!&ndash; 订单中Tab样式&ndash;&gt;
+    <!-- 订单中Tab样式-->
     <style name="TabsStyle.Order" parent="@style/TabsStyle">
         <item name="tabIndicatorColor">@color/common_blue</item>
         <item name="tabBackground">@drawable/border_bottom</item>
         <item name="tabTextColor">@color/text_normal</item>
         <item name="tabSelectedTextColor">@color/common_blue</item>
-    </style>-->
+    </style>
     <!-- 横向分隔线 -->
     <style name="DividerFixedHeight">
         <item name="android:background">@color/common_divider</item>

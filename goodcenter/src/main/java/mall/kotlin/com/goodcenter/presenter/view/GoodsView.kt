@@ -11,4 +11,6 @@ interface GoodsView : BaseView {
 
     fun onGetGoodsResult(result: MutableList<Goods>?)
 
+    fun getGoodsDetail(goods: Goods)
+
 }

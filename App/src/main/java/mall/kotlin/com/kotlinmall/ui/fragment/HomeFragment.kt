@@ -16,11 +16,13 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_home.*
 import mall.kotlin.com.baselibrary.ui.fragment.BaseFragment
 import mall.kotlin.com.baselibrary.widgets.BannerImageLoader
+import mall.kotlin.com.goodcenter.ui.activity.SearchGoodsActivity
 import mall.kotlin.com.kotlinmall.R
 import mall.kotlin.com.kotlinmall.common.*
 import mall.kotlin.com.kotlinmall.ui.adapter.HomeDiscountAdapter
 import mall.kotlin.com.kotlinmall.ui.adapter.TopicAdapter
 import me.crosswall.lib.coverflow.CoverFlow
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * @author Dsh  on 2018/5/24.
@@ -44,6 +46,9 @@ class HomeFragment : BaseFragment() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun initView() {
+
+
+        mSearchEt.setOnClickListener { startActivity<SearchGoodsActivity>() }
 
         newsFlipperView.setData(arrayOf("夏日炎炎，第一波福利还有30秒到达战场\", \"新用户立领1000元优惠券"))
 
