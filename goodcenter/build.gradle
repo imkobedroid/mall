@@ -49,6 +49,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':Provider')
     api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    api "com.google.dagger:dagger:$dagger2"
     kapt "com.google.dagger:dagger-compiler:$dagger2"
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }

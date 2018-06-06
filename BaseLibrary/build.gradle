@@ -6,6 +6,12 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -69,6 +75,7 @@ dependencies {
     compile 'com.eightbitlab:rxbus:1.0.2'
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile "com.alibaba:arouter-api:$arouter_api_version"
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
     compile 'q.rorbin:badgeview:1.1.2'
     compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
 }

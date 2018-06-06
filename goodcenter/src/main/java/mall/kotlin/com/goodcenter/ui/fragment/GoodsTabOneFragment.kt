@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
-import android.widget.PopupWindow
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
 import com.kotlin.goods.data.protocol.Goods
@@ -21,9 +20,11 @@ import mall.kotlin.com.baselibrary.utils.YuanFenConverter
 import mall.kotlin.com.baselibrary.widgets.BannerImageLoader
 import mall.kotlin.com.goodcenter.R
 import mall.kotlin.com.goodcenter.common.GoodConstant
+import mall.kotlin.com.goodcenter.event.AddCartEvent
 import mall.kotlin.com.goodcenter.event.GoodsDetailImageEvent
 import mall.kotlin.com.goodcenter.event.SkuChangedEvent
 import mall.kotlin.com.goodcenter.injection.component.DaggerCategoryComponent
+import mall.kotlin.com.goodcenter.injection.module.CartModule
 import mall.kotlin.com.goodcenter.injection.module.CategoryModule
 import mall.kotlin.com.goodcenter.presenter.GoodsPresenter
 import mall.kotlin.com.goodcenter.presenter.view.GoodsView
@@ -35,15 +36,18 @@ import mall.kotlin.com.goodcenter.widgets.GoodsSkuPopView
 class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
 
 
+    private var mGoods: Goods? = null
     private val mSkuViewPop: GoodsSkuPopView by lazy { GoodsSkuPopView(activity) }
     //SKU弹层出场动画
     private lateinit var mAnimationStart: Animation
     //SKU弹层退场动画
     private lateinit var mAnimationEnd: Animation
+
     override fun onGetGoodsResult(result: MutableList<Goods>?) {
     }
 
     override fun getGoodsDetail(goods: Goods) {
+        mGoods = goods
         mGoodsDetailBanner.setImages(goods.goodsBanner.split(",")).start()
         mGoodsDescTv.text = goods.goodsDesc
         mGoodsPriceTv.text = YuanFenConverter.changeF2YWithUnit(goods.goodsDefaultPrice)
@@ -62,7 +66,7 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
 
     override fun injectComponent() {
         DaggerCategoryComponent.builder().activityComponent(mActivityComponent)
-                .categoryModule(CategoryModule()).build().inject(this)
+                .categoryModule(CategoryModule()).cartModule(CartModule()).build().inject(this)
         mPresenter.mView = this
     }
 
@@ -83,7 +87,7 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
     }
 
     private fun initSkuPop() {
-        mSkuViewPop.setOnDismissListener{
+        mSkuViewPop.setOnDismissListener {
             (activity as BaseActivity).contentView.startAnimation(mAnimationEnd)
         }
     }
@@ -94,8 +98,8 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
                 .setDelayTime(2000).setIndicatorGravity(BannerConfig.RIGHT)
 
         mSkuView.setOnClickListener {
-            mSkuViewPop.showAtLocation((activity as BaseActivity).contentView,Gravity.BOTTOM and Gravity.CENTER_HORIZONTAL,0,0)
-            (activity as  BaseActivity).contentView.startAnimation(mAnimationStart)
+            mSkuViewPop.showAtLocation((activity as BaseActivity).contentView, Gravity.BOTTOM and Gravity.CENTER_HORIZONTAL, 0, 0)
+            (activity as BaseActivity).contentView.startAnimation(mAnimationStart)
         }
     }
 
@@ -104,9 +108,14 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun initObserver(){
+    private fun initObserver() {
         Bus.observe<SkuChangedEvent>().subscribe {
-            mSkuSelectedTv.text=mSkuViewPop.getSelectSku()+GoodConstant.SKU_SEPARATOR+mSkuViewPop.getSelectCount()+"件"
+            mSkuSelectedTv.text = mSkuViewPop.getSelectSku() + GoodConstant.SKU_SEPARATOR + mSkuViewPop.getSelectCount() + "件"
+        }.registerInBus(this)
+
+
+        Bus.observe<AddCartEvent>().subscribe {
+            addCartPresenter()
         }.registerInBus(this)
     }
 
@@ -129,6 +138,22 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
                 0.95f, 1f, 0.95f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         mAnimationEnd.duration = 500
         mAnimationEnd.fillAfter = true
+    }
+
+
+    fun addCartPresenter() {
+        mGoods?.let {
+            mPresenter.addCart(it.id,
+                    it.goodsDesc,
+                    it.goodsDefaultIcon,
+                    it.goodsDefaultPrice,
+                    mSkuViewPop.getSelectCount(),
+                    mSkuViewPop.getSelectSku())
+        }
+    }
+
+
+    override fun addCart(count: Int) {
     }
 
 }

@@ -29,6 +29,10 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLa
 
     }
 
+    override fun addCart(count:Int){
+
+    }
+
 
     private var mMaxPage: Int = 1
     private var mCurrentPage: Int = 1

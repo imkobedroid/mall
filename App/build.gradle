@@ -4,6 +4,15 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -39,4 +48,6 @@ dependencies {
     }
     implementation project(':MessageCenter')
     implementation project(':goodcenter')
+
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }

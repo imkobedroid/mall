@@ -13,4 +13,6 @@ interface GoodsView : BaseView {
 
     fun getGoodsDetail(goods: Goods)
 
+    fun addCart(count:Int)
+
 }

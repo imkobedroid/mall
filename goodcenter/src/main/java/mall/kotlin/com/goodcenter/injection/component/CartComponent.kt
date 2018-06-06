@@ -15,10 +15,7 @@ import mall.kotlin.com.goodcenter.ui.fragment.GoodsTabOneFragment
  */
 
 @PerComponentScope
-@Component(modules = [(CategoryModule::class), (CartModule::class)], dependencies = [(ActivityComponent::class)])
-interface CategoryComponent {
-    fun inject(fragment: CategoryFragment)
-    fun inject(fragment: GoodsActivity)
-    fun inject(fragment: GoodsTabOneFragment)
-    fun inject(activity: GoodsDetailActivity)
+@Component(modules = [(CartModule::class)], dependencies = [(ActivityComponent::class)])
+interface CartComponent {
+
 }
