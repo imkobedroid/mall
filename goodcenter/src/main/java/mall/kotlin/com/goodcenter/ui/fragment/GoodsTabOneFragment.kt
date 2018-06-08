@@ -23,6 +23,7 @@ import mall.kotlin.com.goodcenter.common.GoodConstant
 import mall.kotlin.com.goodcenter.event.AddCartEvent
 import mall.kotlin.com.goodcenter.event.GoodsDetailImageEvent
 import mall.kotlin.com.goodcenter.event.SkuChangedEvent
+import mall.kotlin.com.goodcenter.event.UpdateCartSizeEvent
 import mall.kotlin.com.goodcenter.injection.component.DaggerCategoryComponent
 import mall.kotlin.com.goodcenter.injection.module.CartModule
 import mall.kotlin.com.goodcenter.injection.module.CategoryModule
@@ -154,6 +155,8 @@ class GoodsTabOneFragment : BaseMvpFragment<GoodsPresenter>(), GoodsView {
 
 
     override fun addCart(count: Int) {
+
+        Bus.send(UpdateCartSizeEvent())
     }
 
 }

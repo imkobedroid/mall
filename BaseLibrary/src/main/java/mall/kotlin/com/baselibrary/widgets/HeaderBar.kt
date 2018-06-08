@@ -5,6 +5,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
 import mall.kotlin.com.baselibrary.R
 import org.jetbrains.anko.layoutInflater
@@ -44,8 +46,24 @@ class HeaderBar @JvmOverloads constructor(
     }
 
 
-    fun getRightView(): View {
+    fun getRightView(): TextView {
         return mRightTv
+    }
+
+
+
+    /*
+        获取左侧视图
+     */
+    fun getLeftView(): ImageView {
+        return mLeftIv
+    }
+
+    /*
+        获取右侧文字
+     */
+    fun getRightText():String{
+        return mRightTv.text.toString()
     }
 
 }
