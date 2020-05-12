@@ -3,7 +3,7 @@ package com.kotlin.usercenter.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.kotlin.provider.common.ProviderConstant.Companion.PATH
+import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.data.protocol.LoginInfo
 import com.kotlin.usercenter.injection.component.DaggerUserComponent
@@ -20,7 +20,7 @@ import org.jetbrains.anko.toast
  * @date 2020/5/12
  */
 @SuppressLint("Registered")
-@Route(path = PATH)
+@Route(path = ProviderConstant.PATH)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
 
 

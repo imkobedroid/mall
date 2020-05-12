@@ -10,18 +10,22 @@ ext {
             junit            : "4.12",
             runner           : "1.2.0",
             espresso         : "3.2.0",
-            sdkName          : "AccountSdk"
+            sdkName          : "AccountSdk",
+
     ]
 
 
     def commonDependVersion = [
             dagger          : "2.23.2",
+            arouter         : "1.5.0",
     ]
 
 
     LyCommonDependencies = [
             "dagger2"                      : "com.google.dagger:dagger:$commonDependVersion.dagger",
             "daggerCompiler"               : "com.google.dagger:dagger-compiler:$commonDependVersion.dagger",
+            "arouter"                      : "com.alibaba:arouter-api:$commonDependVersion.arouter",
+            "arouterCompiler"              : "com.alibaba:arouter-compiler:1.2.2"
     ]
 
 }

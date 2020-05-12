@@ -73,9 +73,9 @@ dependencies {
     api LyDependencies["rxcomponents"]
     api LyDependencies["anko"]
     annotationProcessor LyDependencies["glideCompiler"]
-    kapt LyDependencies["arouterCompiler"]
+    kapt LyCommonDependencies["arouterCompiler"]
+    api LyCommonDependencies["arouter"]
     api LyDependencies["dagger2"]
-    api LyDependencies["arouter"]
     kapt LyDependencies["daggerCompiler"]
 }
 

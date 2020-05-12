@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: "../version.gradle"
 
+
 android {
 
     compileSdkVersion LyVersion.compileSdkVersion
@@ -24,9 +25,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    kapt {
-//        generateStubs = true
-//    }
 }
 
 dependencies {

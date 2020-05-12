@@ -10,7 +10,7 @@ apply from: "../version.gradle"
 
 kapt {
     arguments {
-        arg("moduleName", project.getName())
+        arg("AROUTER_MODULE_NAME", project.getName())
     }
 }
 
@@ -61,9 +61,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api project(':Ly-BASE-Provider')
-    api LyCommonDependencies["dagger2"]
     kapt LyCommonDependencies["daggerCompiler"]
-
+    kapt LyCommonDependencies["arouterCompiler"]
 }
 repositories {
     mavenCentral()

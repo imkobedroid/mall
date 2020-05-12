@@ -41,8 +41,3 @@ dependencies {
     api project(':Ly-BaseLibrary')
 
 }
-
-
-//kapt {
-//    generateStubs = true
-//}
