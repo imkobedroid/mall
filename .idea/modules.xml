@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/App/App.iml" filepath="$PROJECT_DIR$/App/App.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-module-2/MessageCenter.iml" filepath="$PROJECT_DIR$/mall-module-2/MessageCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-BASE-Provider/Provider.iml" filepath="$PROJECT_DIR$/mall-BASE-Provider/Provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UserCenter/UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/UserCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-moudle-1/goodcenter.iml" filepath="$PROJECT_DIR$/mall-moudle-1/goodcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-App/App.iml" filepath="$PROJECT_DIR$/Ly-App/App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-BaseLibrary/BaseLibrary.iml" filepath="$PROJECT_DIR$/Ly-BaseLibrary/BaseLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-App/Ly-App.iml" filepath="$PROJECT_DIR$/Ly-App/Ly-App.iml" group="mall/Ly-App" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-BASE-Provider/Ly-BASE-Provider.iml" filepath="$PROJECT_DIR$/Ly-BASE-Provider/Ly-BASE-Provider.iml" group="mall/Ly-BASE-Provider" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-BaseLibrary/Ly-BaseLibrary.iml" filepath="$PROJECT_DIR$/Ly-BaseLibrary/Ly-BaseLibrary.iml" group="mall/Ly-BaseLibrary" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-UserCenter/Ly-UserCenter.iml" filepath="$PROJECT_DIR$/Ly-UserCenter/Ly-UserCenter.iml" group="mall/Ly-UserCenter" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-module-2/Ly-module-2.iml" filepath="$PROJECT_DIR$/Ly-module-2/Ly-module-2.iml" group="mall/Ly-module-2" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-moudle-1/Ly-moudle-1.iml" filepath="$PROJECT_DIR$/Ly-moudle-1/Ly-moudle-1.iml" group="mall/Ly-moudle-1" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-module-2/MessageCenter.iml" filepath="$PROJECT_DIR$/Ly-module-2/MessageCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-BASE-Provider/Provider.iml" filepath="$PROJECT_DIR$/Ly-BASE-Provider/Provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-UserCenter/UserCenter.iml" filepath="$PROJECT_DIR$/Ly-UserCenter/UserCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ly-moudle-1/goodcenter.iml" filepath="$PROJECT_DIR$/Ly-moudle-1/goodcenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall.iml" filepath="$PROJECT_DIR$/mall.iml" />
-      <module fileurl="file://$PROJECT_DIR$/App/mall-App.iml" filepath="$PROJECT_DIR$/App/mall-App.iml" group="mall/App" />
-      <module fileurl="file://$PROJECT_DIR$/mall-BASE-Provider/mall-BASE-Provider.iml" filepath="$PROJECT_DIR$/mall-BASE-Provider/mall-BASE-Provider.iml" group="mall/mall-BASE-Provider" />
-      <module fileurl="file://$PROJECT_DIR$/BaseLibrary/mall-BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/mall-BaseLibrary.iml" group="mall/BaseLibrary" />
-      <module fileurl="file://$PROJECT_DIR$/UserCenter/mall-UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/mall-UserCenter.iml" group="mall/UserCenter" />
-      <module fileurl="file://$PROJECT_DIR$/mall-module-2/mall-module-2.iml" filepath="$PROJECT_DIR$/mall-module-2/mall-module-2.iml" group="mall/mall-module-2" />
-      <module fileurl="file://$PROJECT_DIR$/mall-moudle-1/mall-moudle-1.iml" filepath="$PROJECT_DIR$/mall-moudle-1/mall-moudle-1.iml" group="mall/mall-moudle-1" />
       <module fileurl="file://$PROJECT_DIR$/open-mall.iml" filepath="$PROJECT_DIR$/open-mall.iml" group="mall" />
     </modules>
   </component>

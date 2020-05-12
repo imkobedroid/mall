@@ -10,12 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/App" />
-            <option value="$PROJECT_DIR$/BaseLibrary" />
-            <option value="$PROJECT_DIR$/UserCenter" />
-            <option value="$PROJECT_DIR$/mall-BASE-Provider" />
-            <option value="$PROJECT_DIR$/mall-module-2" />
-            <option value="$PROJECT_DIR$/mall-moudle-1" />
+            <option value="$PROJECT_DIR$/Ly-App" />
+            <option value="$PROJECT_DIR$/Ly-BASE-Provider" />
+            <option value="$PROJECT_DIR$/Ly-BaseLibrary" />
+            <option value="$PROJECT_DIR$/Ly-UserCenter" />
+            <option value="$PROJECT_DIR$/Ly-module-2" />
+            <option value="$PROJECT_DIR$/Ly-moudle-1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

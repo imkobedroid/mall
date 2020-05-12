@@ -1,1 +1,1 @@
-include ':App', ':BaseLibrary', ':mall-BASE-Provider', ':UserCenter', ':mall-module-2', ':mall-moudle-1'
+include ':Ly-App', ':Ly-BaseLibrary', ':Ly-BASE-Provider', ':Ly-UserCenter', ':Ly-module-2', ':Ly-moudle-1'
