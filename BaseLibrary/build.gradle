@@ -6,16 +6,34 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply from: "config.gradle"
+
+apply from: "../version.gradle"
+
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 android {
-    compileSdkVersion 26
+
+
+    compileSdkVersion LyVersion.compileSdkVersion
+    buildToolsVersion LyVersion.buildToolsVersion
+
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion LyVersion.minSdkVersion
+        targetSdkVersion LyVersion.targetSdkVersion
+        versionCode LyVersion.versionCode
+        versionName LyVersion.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
     }
 
     buildTypes {
@@ -25,50 +43,39 @@ android {
         }
     }
 
-
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
-    compile "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
-    compile "org.jetbrains.anko:anko:$anko_version"
-    compile "io.reactivex.rxjava2:rxkotlin:$rxKotlin_version"
-    compile "io.reactivex.rxjava2:rxandroid:$rxandroid"
-    compile "com.squareup.retrofit2:retrofit:$retrofit"
-    compile "com.squareup.okhttp3:okhttp:$okhttp"
-    compile "com.squareup.okhttp3:logging-interceptor:$okhttp"
-    compile "com.squareup.retrofit2:converter-gson:$retrofit"
-    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
-    compile "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermission"
-    compile "com.google.dagger:dagger:$dagger2"
-    kapt "com.google.dagger:dagger-compiler:$dagger2"
-    compile "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rxlifecycle"
-    compile "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle"
-    compile "com.android.support:recyclerview-v7:${android_support_version}"
-    compile "com.github.bumptech.glide:glide:$glide_version"
-    compile "de.hdodenhof:circleimageview:$circleimageview_version"
-    compile "com.jph.takephoto:takephoto_library:${take_photo_version}"
-    compile "com.bigkoo:alertview:${alert_view_version}"
-    compile "com.android.support:cardview-v7:${android_support_version}"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    //noinspection GradleDynamicVersion
-    compile "com.qiniu:qiniu-android-sdk:7.3.+"
-    compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
-    compile 'com.youth.banner:banner:1.4.10'  //最新版本
-    compile 'com.github.shts:TriangleLabelView:1.1.2'
-    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
-    compile "com.github.Kennyc1012:MultiStateView:$multi_state_view_version"
-    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.7@aar'
-    compile 'com.eightbitlab:rxbus:1.0.2'
-    compile 'com.zhy:flowlayout-lib:1.0.3'
-    compile "com.alibaba:arouter-api:$arouter_api_version"
-    compile 'q.rorbin:badgeview:1.1.2'
+
+    api LyDependencies["glide"]
+    api LyDependencies["javax"]
+    api LyDependencies["rxKotlin"]
+    api LyDependencies["rxjava"]
+    api LyDependencies["rxandroid"]
+    api LyDependencies["retrofit"]
+    api LyDependencies["retrofit-converter-gson"]
+    api LyDependencies["retrofit-adapter-rxjava2"]
+    api LyDependencies["okhttp"]
+    api LyDependencies["okhttp-logging-interceptor"]
+    api LyDependencies["cardView"]
+    api LyDependencies["recyclerview"]
+    api LyDependencies["BaseRecyclerViewAdapterHelper"]
+    api LyDependencies["rxlifecycle"]
+    api LyDependencies["rxcomponents"]
+    api LyDependencies["anko"]
+    annotationProcessor LyDependencies["glideCompiler"]
+    kapt LyDependencies["arouterCompiler"]
+    api LyDependencies["dagger2"]
+    api LyDependencies["arouter"]
+    kapt LyDependencies["daggerCompiler"]
 }
 

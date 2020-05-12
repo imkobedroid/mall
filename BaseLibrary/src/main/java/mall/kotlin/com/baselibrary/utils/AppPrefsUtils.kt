@@ -44,7 +44,7 @@ object AppPrefsUtils {
     /*
         默认 ""
      */
-    fun getString(key: String): String {
+    fun getString(key: String): String? {
         return sp.getString(key, "")
     }
 
@@ -82,8 +82,8 @@ object AppPrefsUtils {
         Set数据
      */
     fun putStringSet(key: String, set: Set<String>) {
-        val localSet = getStringSet(key).toMutableSet()
-        localSet.addAll(set)
+        val localSet = getStringSet(key)?.toMutableSet()
+        localSet?.addAll(set)
         ed.putStringSet(key, localSet)
         ed.commit()
     }
@@ -91,7 +91,7 @@ object AppPrefsUtils {
     /*
         默认空set
      */
-    fun getStringSet(key: String): Set<String> {
+    fun getStringSet(key: String): MutableSet<String>? {
         val set = setOf<String>()
         return sp.getStringSet(key, set)
     }

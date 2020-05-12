@@ -7,7 +7,8 @@ import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 
 
 /**
- * @author Dsh  on 2018/4/18.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 class BaseFuncBoolean<T> :Function<BaseResp<T>,Flowable<Boolean>> {
     override fun apply(t: BaseResp<T>): Flowable<Boolean> {

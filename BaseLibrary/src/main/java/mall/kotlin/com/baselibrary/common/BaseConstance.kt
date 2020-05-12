@@ -1,18 +1,13 @@
 package mall.kotlin.com.baselibrary.common
 
 /**
- * @author Dsh  on 2018/4/13.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 class BaseConstance {
     companion object {
-       // val BASE_URL="http://192.168.0.100:8080/"
-        /*val BASE_URL="http://www.fzwdyw.com"*/
-        val BASE_URL="http://120.79.59.193:8080/Kotlin_Server/"
-        val TIME_OUT:Long=30
-        const val IMAGE_SERVER_ADDRESS = "http://osea2fxp7.bkt.clouddn.com/"
-
+        const val BASE_URL = "http://106.14.165.87:8028"
+        const val TIME_OUT: Long = 30
         const val TABLE_PREFS="kotlin_mall"
-        //Token Key
-        const val KEY_SP_TOKEN = "token"
     }
 }

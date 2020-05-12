@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MatchMatch.Vertical"
-    android:gravity="bottom">
+    style="@style/MatchMatch.Vertical">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
 
-    <mall.kotlin.com.baselibrary.widgets.BottomNavBar
-        android:id="@+id/bottom_navigation_bar"
-        style="@style/MatchWrap"
-        android:layout_gravity="bottom" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="我是宿主App"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="跳转到用户module" />
+
 </LinearLayout>

@@ -2,36 +2,32 @@ package com.kotlin.usercenter.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.kotlin.provider.common.ProviderConstant.Companion.PATH
 import com.kotlin.usercenter.R
-import com.kotlin.usercenter.data.protocol.UserInfo
+import com.kotlin.usercenter.data.protocol.LoginInfo
 import com.kotlin.usercenter.injection.component.DaggerUserComponent
 import com.kotlin.usercenter.injection.module.UserModule
 import com.kotlin.usercenter.presenter.LoginPresenter
 import com.kotlin.usercenter.presenter.view.LoginView
-import com.kotlin.usercenter.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
-import mall.kotlin.com.baselibrary.ext.enable
 import mall.kotlin.com.baselibrary.ui.activity.BaseMvpActivity
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
+
+/**
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
+ */
 @SuppressLint("Registered")
-class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
-    override fun loginResult(b: UserInfo) {
-        UserPrefsUtils.putUserInfo(b)
-        finish()
-    }
+@Route(path = PATH)
+class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
 
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.mLoginBtn -> {
-                mPresenter.login(mMobileEt.text.toString(), mPwdEt.text.toString(), "")
-            }
-            R.id.mRightTv -> startActivity<RegisterActivity>()
-            R.id.mForgetPwdTv -> startActivity<ForgetPwdActivity>()
-        }
+    override fun loginResult(b: List<LoginInfo>) {
+        toast("请求成功")
     }
+
 
     override fun injectComponent() {
         DaggerUserComponent.builder().activityComponent(activityComponent)
@@ -47,19 +43,11 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     }
 
 
-    /**
-     * 初始化视图
-     */
     private fun initView() {
-        mLoginBtn.enable(mMobileEt, { isBtnEnable() })
-        mLoginBtn.enable(mPwdEt, { isBtnEnable() })
-        mLoginBtn.setOnClickListener(this)
-        mHeaderBar.getRightView().setOnClickListener(this)
-        mForgetPwdTv.setOnClickListener(this)
+
+        mLoginBtn.setOnClickListener {
+            mPresenter.login(mMobileEt.text.toString())
+        }
     }
 
-    private fun isBtnEnable(): Boolean {
-        return mMobileEt.text.isNullOrEmpty().not() and
-                mMobileEt.text.isNullOrEmpty().not()
-    }
 }

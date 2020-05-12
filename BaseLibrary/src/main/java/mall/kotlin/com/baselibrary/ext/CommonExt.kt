@@ -3,8 +3,7 @@ package mall.kotlin.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
-import com.trello.rxlifecycle2.LifecycleProvider
+import com.trello.rxlifecycle3.LifecycleProvider
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -12,11 +11,11 @@ import mall.kotlin.com.baselibrary.data.protocol.BaseResp
 import mall.kotlin.com.baselibrary.rx.BaseFunc
 import mall.kotlin.com.baselibrary.rx.BaseFuncBoolean
 import mall.kotlin.com.baselibrary.rx.BaseSubscribe
-import mall.kotlin.com.baselibrary.utils.GlideUtils
 import mall.kotlin.com.baselibrary.widgets.DefaultTextWatcher
 
 /**
- * @author Dsh  on 2018/4/12.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 fun <T> Flowable<T>.execute(subscribe: BaseSubscribe<T>, lifecycleProvider: LifecycleProvider<*>) {
     this.subscribeOn(Schedulers.io())
@@ -67,10 +66,3 @@ fun <T> Flowable<BaseResp<T>>.convertBoolean(): Flowable<Boolean> {
     return this.flatMap(BaseFuncBoolean())
 }
 
-
-/*
-    ImageView加载网络图片
- */
-fun ImageView.loadUrl(url: String) {
-    GlideUtils.loadUrlImage(context, url, this)
-}

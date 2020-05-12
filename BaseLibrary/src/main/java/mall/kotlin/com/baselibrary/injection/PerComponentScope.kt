@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy
 import javax.inject.Scope
 
 /**
- * @author Dsh  on 2018/4/16.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 @Scope
 @Documented

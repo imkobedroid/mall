@@ -13,7 +13,8 @@ import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 /**
- * @author Dsh  on 2018/4/10.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
     lateinit var activityComponent: ActivityComponent

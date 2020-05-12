@@ -1,12 +1,11 @@
 package mall.kotlin.com.baselibrary.common
 
 /**
- * @author Dsh  on 2018/4/13.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 class ResultCode {
     companion object {
-
-
-        const val SUCCEED = 0
+        const val SUCCEED = 10200
     }
 }

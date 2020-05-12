@@ -7,7 +7,8 @@ import android.content.Context
 import java.util.*
 
 /**
- * @author Dsh toushihiroshi on 2018/5/8.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 class AppManager private constructor() {
 

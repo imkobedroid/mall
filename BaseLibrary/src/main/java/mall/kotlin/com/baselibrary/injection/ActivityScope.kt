@@ -2,11 +2,12 @@ package mall.kotlin.com.baselibrary.injection
 
 import java.lang.annotation.Documented
 import java.lang.annotation.Retention
-import javax.inject.Scope
 import java.lang.annotation.RetentionPolicy.RUNTIME
+import javax.inject.Scope
 
 /**
- * @author Dsh  on 2018/4/16.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 @Scope
 @Documented

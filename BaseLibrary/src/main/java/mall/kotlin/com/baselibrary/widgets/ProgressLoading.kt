@@ -9,7 +9,8 @@ import mall.kotlin.com.baselibrary.R
 import org.jetbrains.anko.find
 
 /**
- * @author Dsh on 2018/5/9.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 class ProgressLoading private constructor(context: Context, themeResId: Int) : Dialog(context, themeResId) {
 
@@ -23,10 +24,10 @@ class ProgressLoading private constructor(context: Context, themeResId: Int) : D
             mDialog.setContentView(R.layout.progress_dialog)
             mDialog.setCancelable(true)
             mDialog.setCanceledOnTouchOutside(false)
-            mDialog.window.attributes.gravity=Gravity.CENTER
-            val lp= mDialog.window.attributes
-            lp.dimAmount=0.2f
-            mDialog.window.attributes=lp
+            mDialog.window?.attributes?.gravity = Gravity.CENTER
+            val lp = mDialog.window?.attributes
+            lp?.dimAmount = 0.2f
+            mDialog.window?.attributes = lp
             val loadingView=mDialog.find<ImageView>(R.id.iv_loading)
             animDrawable=loadingView.background as AnimationDrawable
             return mDialog

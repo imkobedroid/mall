@@ -1,13 +1,14 @@
 package mall.kotlin.com.baselibrary.presenter
 
 import android.content.Context
-import com.trello.rxlifecycle2.LifecycleProvider
+import com.trello.rxlifecycle3.LifecycleProvider
 import mall.kotlin.com.baselibrary.presenter.view.BaseView
 import mall.kotlin.com.baselibrary.utils.NetWorkUtils
 import javax.inject.Inject
 
 /**
- * @author Dsh  on 2018/4/10.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 open class BasePresenter<T : BaseView> {
 

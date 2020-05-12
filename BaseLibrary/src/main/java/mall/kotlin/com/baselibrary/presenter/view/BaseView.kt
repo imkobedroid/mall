@@ -1,7 +1,8 @@
 package mall.kotlin.com.baselibrary.presenter.view
 
 /**
- * @author Dsh toushihiroshi on 2018/4/10.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 interface BaseView {
 

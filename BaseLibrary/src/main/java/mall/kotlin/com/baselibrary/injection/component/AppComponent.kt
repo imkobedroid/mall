@@ -6,7 +6,8 @@ import mall.kotlin.com.baselibrary.injection.module.AppModule
 import javax.inject.Singleton
 
 /**
- * @author Dsh  on 2018/4/16.
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 @Singleton
 @Component(modules = [(AppModule::class)])

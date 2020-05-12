@@ -1,0 +1,27 @@
+ext {
+    LyVersion = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.3",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0",
+            appCompat        : "1.0.2",
+            junit            : "4.12",
+            runner           : "1.2.0",
+            espresso         : "3.2.0",
+            sdkName          : "AccountSdk"
+    ]
+
+
+    def commonDependVersion = [
+            dagger          : "2.23.2",
+    ]
+
+
+    LyCommonDependencies = [
+            "dagger2"                      : "com.google.dagger:dagger:$commonDependVersion.dagger",
+            "daggerCompiler"               : "com.google.dagger:dagger-compiler:$commonDependVersion.dagger",
+    ]
+
+}

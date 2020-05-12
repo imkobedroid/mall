@@ -1,10 +1,11 @@
 package mall.kotlin.com.baselibrary.ui.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
-/*
-    RecyclerViewAdapter基类
+/**
+ * @author Dsh  imkobedroid@gmail.com
+ * @date 2020/5/12
  */
 abstract class BaseRecyclerViewAdapter<T, VH : RecyclerView.ViewHolder>(var mContext: Context) : RecyclerView.Adapter<VH>() {
 

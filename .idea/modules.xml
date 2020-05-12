@@ -4,11 +4,18 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/App/App.iml" filepath="$PROJECT_DIR$/App/App.iml" />
       <module fileurl="file://$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MessageCenter/MessageCenter.iml" filepath="$PROJECT_DIR$/MessageCenter/MessageCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Provider/Provider.iml" filepath="$PROJECT_DIR$/Provider/Provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-module-2/MessageCenter.iml" filepath="$PROJECT_DIR$/mall-module-2/MessageCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-BASE-Provider/Provider.iml" filepath="$PROJECT_DIR$/mall-BASE-Provider/Provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserCenter/UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/UserCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/goodcenter/goodcenter.iml" filepath="$PROJECT_DIR$/goodcenter/goodcenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-moudle-1/goodcenter.iml" filepath="$PROJECT_DIR$/mall-moudle-1/goodcenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall.iml" filepath="$PROJECT_DIR$/mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/App/mall-App.iml" filepath="$PROJECT_DIR$/App/mall-App.iml" group="mall/App" />
+      <module fileurl="file://$PROJECT_DIR$/mall-BASE-Provider/mall-BASE-Provider.iml" filepath="$PROJECT_DIR$/mall-BASE-Provider/mall-BASE-Provider.iml" group="mall/mall-BASE-Provider" />
+      <module fileurl="file://$PROJECT_DIR$/BaseLibrary/mall-BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/mall-BaseLibrary.iml" group="mall/BaseLibrary" />
+      <module fileurl="file://$PROJECT_DIR$/UserCenter/mall-UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/mall-UserCenter.iml" group="mall/UserCenter" />
+      <module fileurl="file://$PROJECT_DIR$/mall-module-2/mall-module-2.iml" filepath="$PROJECT_DIR$/mall-module-2/mall-module-2.iml" group="mall/mall-module-2" />
+      <module fileurl="file://$PROJECT_DIR$/mall-moudle-1/mall-moudle-1.iml" filepath="$PROJECT_DIR$/mall-moudle-1/mall-moudle-1.iml" group="mall/mall-moudle-1" />
+      <module fileurl="file://$PROJECT_DIR$/open-mall.iml" filepath="$PROJECT_DIR$/open-mall.iml" group="mall" />
     </modules>
   </component>
 </project>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -10,10 +12,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/App" />
             <option value="$PROJECT_DIR$/BaseLibrary" />
-            <option value="$PROJECT_DIR$/MessageCenter" />
-            <option value="$PROJECT_DIR$/Provider" />
             <option value="$PROJECT_DIR$/UserCenter" />
-            <option value="$PROJECT_DIR$/goodcenter" />
+            <option value="$PROJECT_DIR$/mall-BASE-Provider" />
+            <option value="$PROJECT_DIR$/mall-module-2" />
+            <option value="$PROJECT_DIR$/mall-moudle-1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

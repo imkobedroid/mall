@@ -1,14 +1,12 @@
-if(isUserModule.toBoolean() ){
+if (isUserModule.toBoolean()) {
     apply plugin: 'com.android.library'
-}else {
+} else {
     apply plugin: 'com.android.application'
-
 }
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
+apply from: "../version.gradle"
 
 kapt {
     arguments {
@@ -17,15 +15,15 @@ kapt {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion LyVersion.compileSdkVersion
+    buildToolsVersion LyVersion.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion LyVersion.minSdkVersion
+        targetSdkVersion LyVersion.targetSdkVersion
+        versionCode LyVersion.versionCode
+        versionName LyVersion.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -53,15 +51,18 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(':Provider')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile "com.google.dagger:dagger:$dagger2"
-    kapt "com.google.dagger:dagger-compiler:$dagger2"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api project(':mall-BASE-Provider')
+    api LyCommonDependencies["dagger2"]
+    kapt LyCommonDependencies["daggerCompiler"]
 
 }
 repositories {
